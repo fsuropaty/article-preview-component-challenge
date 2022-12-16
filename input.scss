@@ -1,0 +1,255 @@
+$Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+$Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+$Grayish-Blue: hsl(212, 23%, 69%);
+$Light-Grayish-Blue: hsl(210, 46%, 95%);
+$Manrope: "Manrope", sans-serif;
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: $Light-Grayish-Blue;
+  font-family: $Manrope;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 4rem 1.5rem;
+  background-color: white;
+  max-width: 23.4375rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+header {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+  }
+}
+
+main {
+  section {
+    margin: 2rem 2.7rem 0.8rem 2rem;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: medium;
+    color: $Very-Dark-Grayish-Blue;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: $Desaturated-Dark-Blue;
+    line-height: 1.4rem;
+  }
+}
+
+.bottom-part {
+  display: flex;
+  margin: 2rem 2rem 1rem 2rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .writer {
+    display: flex;
+    place-items: center;
+    width: 100%;
+
+    img {
+      width: 2.625rem;
+      height: 2.625rem;
+      border-radius: 100%;
+      margin: 0;
+    }
+
+    section {
+      margin: 0 0 0 1rem;
+    }
+
+    .name {
+      margin: 0;
+      place-self: start;
+      margin-left: 1rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: small;
+      color: $Very-Dark-Grayish-Blue;
+    }
+
+    p {
+      margin: 0;
+      color: $Desaturated-Dark-Blue;
+    }
+  }
+
+  .share-button {
+    button {
+      cursor: pointer;
+      height: 2rem;
+      width: 2rem;
+      background-color: $Light-Grayish-Blue;
+      padding: 0.3rem;
+      border-radius: 100%;
+      border: none;
+      position: absolute;
+      z-index: 99;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      right: 0;
+      transition: transform 500ms ease-in-out;
+    }
+    &:hover {
+      button {
+        background-color: $Desaturated-Dark-Blue;
+      }
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  .share-pop-up {
+    background-color: $Very-Dark-Grayish-Blue;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: absolute;
+    padding: 1rem 2rem;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: transform 500ms ease-in-out, opacity 300ms ease-in-out;
+    transform: translateY(150%);
+
+    p {
+      color: $Grayish-Blue;
+      font-size: small;
+      letter-spacing: 0.3rem;
+      margin-right: 0.5rem;
+    }
+
+    .social-media {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+
+      a:hover {
+        path {
+          transition: fill 300ms;
+          fill: $Grayish-Blue;
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    color: $Desaturated-Dark-Blue;
+  }
+}
+
+.active {
+  background-color: $Desaturated-Dark-Blue !important;
+  transform: rotate(360deg);
+
+  path {
+    fill: white;
+  }
+}
+
+.pop-up-active {
+  transform: translateY(0%) !important;
+  opacity: 100% !important;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    display: inline-grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    max-width: 52rem;
+    overflow: visible;
+  }
+
+  header {
+    img {
+      height: 100%;
+    }
+  }
+
+  main {
+    section {
+      margin: 2.2rem 3rem 1rem 3rem;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+  .bottom-part {
+    margin-bottom: 2rem;
+    margin: 2rem 3rem 2rem 3rem;
+
+    .share-button {
+      button {
+        right: 2rem;
+      }
+    }
+
+    .share-pop-up {
+      top: -185%;
+      right: -19%;
+      margin-left: -80px;
+      width: auto;
+      border-radius: 10px;
+      padding: 0.5rem 2.5rem;
+      box-shadow: 1px 9px 5px 0px rgba(0, 0, 0, 0.11);
+      opacity: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: $Very-Dark-Grayish-Blue transparent transparent
+          transparent;
+      }
+    }
+  }
+}
